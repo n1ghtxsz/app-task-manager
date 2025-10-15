@@ -1,0 +1,175 @@
+
+.universe-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at center, #0a0e2a 0%, #000000 70%);
+    overflow: hidden;
+}
+
+main {
+    background-color: #0B0B19;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+h2, h1 {
+    font-family: Montserrat;
+}
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation-timing-function: ease-out;
+}
+
+.star.small {
+    width: 1px;
+    height: 1px;
+    box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.8);
+}
+
+.star.medium {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.9);
+}
+
+.star.large {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 1);
+}
+
+.star.twinkling {
+    animation: twinkle 3s infinite alternate;
+}
+
+/* Animação de subida inicial */
+@keyframes riseUp {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animação de flutuação aleatória */
+@keyframes floatRandom {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10px, -5px);
+    }
+    50% {
+        transform: translate(-8px, 8px);
+    }
+    75% {
+        transform: translate(12px, 3px);
+    }
+    100% {
+        transform: translate(-5px, -7px);
+    }
+}
+
+/* Animação de cintilação */
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    letter-spacing: 3px;
+    font-weight: 300;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.instructions {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 2s forwards;
+}
+
+/* Efeito de partículas de fundo */
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: particleFloat 20s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .instructions {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

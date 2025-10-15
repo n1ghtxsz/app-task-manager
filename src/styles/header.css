@@ -1,0 +1,49 @@
+header {
+    background-color: #21262C;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: white;
+    position: fixed;
+    z-index: 1000;
+}
+
+header>div {
+    height: 60px;
+}
+
+header>div>img {
+    width: 46px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.underline-anim {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+.underline-anim::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 3px;
+  background-color: #bbb;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.underline-anim:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
